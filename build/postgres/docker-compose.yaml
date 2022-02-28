@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: P@ssw0rd
+      PGDATA: /data/postgres
+      TZ: Asia/Bangkok
+    # volumes:
+    #   - $PWD/postgres-data:/data/postgres
+    ports:
+      - "5432:5432"

@@ -1,0 +1,100 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "Mock api with fiber framework.",
+        "title": "Mock API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "K.apiwattanawong",
+            "url": "http://www.swagger.io/support",
+            "email": "k.apiwattanawong@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:9090",
+    "basePath": "/mock",
+    "paths": {
+        "/user": {
+            "get": {
+                "description": "get user by id or first name",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get User",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "FirstName",
+                        "name": "firstName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/user.User"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "user.User": {
+            "type": "object",
+            "properties": {
+                "balance": {
+                    "type": "number",
+                    "example": 0.5
+                },
+                "datetime": {
+                    "type": "string",
+                    "example": "2021-01-02 12:13:14"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "k.apiwattanawong@gmail.com"
+                },
+                "first": {
+                    "type": "string",
+                    "example": "Khanapat"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "last": {
+                    "type": "string",
+                    "example": "Apiwattanawong"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "0859223735"
+                }
+            }
+        }
+    }
+}

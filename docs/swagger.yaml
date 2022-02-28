@@ -1,0 +1,69 @@
+basePath: /mock
+definitions:
+  user.User:
+    properties:
+      balance:
+        example: 0.5
+        type: number
+      datetime:
+        example: "2021-01-02 12:13:14"
+        type: string
+      email:
+        example: k.apiwattanawong@gmail.com
+        type: string
+      first:
+        example: Khanapat
+        type: string
+      id:
+        type: integer
+      last:
+        example: Apiwattanawong
+        type: string
+      phone:
+        example: "0859223735"
+        type: string
+    type: object
+host: localhost:9090
+info:
+  contact:
+    email: k.apiwattanawong@gmail.com
+    name: K.apiwattanawong
+    url: http://www.swagger.io/support
+  description: Mock api with fiber framework.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Mock API
+  version: "1.0"
+paths:
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: get user by id or first name
+      parameters:
+      - description: ID
+        in: query
+        name: id
+        type: integer
+      - description: FirstName
+        in: query
+        name: firstName
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success
+          schema:
+            items:
+              $ref: '#/definitions/user.User'
+            type: array
+      summary: Get User
+      tags:
+      - User
+schemes:
+- http
+- https
+swagger: "2.0"
